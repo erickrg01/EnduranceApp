@@ -21,10 +21,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
+<<<<<<< HEAD
         android:background="@drawable/purple_background"
         app:itemBackground="@drawable/selector_active"
         app:itemIconTint="#ffffff"
         app:itemTextColor="#ffffff"
+=======
+        android:background="@drawable/gradient_background_m"
+        app:itemIconTint="@color/selector_icon_color"
+        app:itemTextColor="#ffffff"
+        style="@style/CustomBottomNavigationStyle"
+>>>>>>> d338020 (Primer commit del proyecto)
         />
 
 </RelativeLayout>

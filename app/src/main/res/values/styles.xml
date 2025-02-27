@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources>
+=======
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+>>>>>>> d338020 (Primer commit del proyecto)
     <style name="Theme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Un fondo de color personalizado para la splash -->
         <item name="android:windowBackground">@drawable/esolanegra</item>
         <!-- Otros ajustes de diseño, como el color del texto -->
     </style>
+<<<<<<< HEAD
+=======
+    <style name="CustomBottomNavigationStyle" parent="Widget.Design.BottomNavigationView">
+        <!-- Cambiar el tamaño del icono -->
+        <item name="itemIconSize">24dp</item>
+
+        <!-- Cambiar el padding entre las opciones -->
+        <item name="itemPaddingBottom">12dp</item>
+    </style>
+>>>>>>> d338020 (Primer commit del proyecto)
 </resources>

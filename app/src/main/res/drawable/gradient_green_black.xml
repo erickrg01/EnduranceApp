@@ -1,0 +1,13 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Degradado de negro a rojo -->
+    <gradient
+        android:startColor="#FFFFFF"
+        android:endColor="#00E676"
+        android:angle="0"/> <!-- El ángulo define la dirección del degradado -->
+
+    <!-- Redondear las esquinas -->
+    <corners android:radius="16dp" /> <!-- Cambia el valor según tu preferencia -->
+
+    <!-- Borde negro -->
+    <stroke android:color="#000000" android:width="2dp" />
+</shape>

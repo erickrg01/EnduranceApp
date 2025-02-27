@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -31,6 +33,7 @@ import com.example.enduranceacademyapp.dao.NutricionDataCallback;
 import com.example.enduranceacademyapp.data.AppDatabase;
 import com.example.enduranceacademyapp.data.DatoNutricion;
 import com.example.enduranceacademyapp.data.SharedPrefManager;
+import com.example.enduranceacademyapp.fragments.CircularProgressView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -41,7 +44,8 @@ import java.util.List;
 public class NutricionActivity extends AppCompatActivity {
 
     AppDatabase appDB;
-    TextView txt_kcal,kcal_grasa,kcal_prote,kcal_carbo,txt_grasa,txt_proteina,txt_carbos;
+    double caloriasTotales, caloriasGrasas, caloriasProteina, caloriasCarbohidratos;
+    double gramosGrasas, gramosProteina, gramosCarbohidratos;
     AnyChartView anyChartView;
     String [] macros ={"Kcal Grasas","Kcal Proteinas","Kcal Carbohidratos"};
     double [] kcals = {10,15,30};
@@ -50,14 +54,6 @@ public class NutricionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutricion);
-
-        txt_kcal = findViewById(R.id.txt_kcal);
-        kcal_grasa = findViewById(R.id.kcal_grasa);
-        kcal_prote = findViewById(R.id.kcal_prote);
-        kcal_carbo = findViewById(R.id.kcal_carbo);
-        txt_grasa = findViewById(R.id.txt_grasa);
-        txt_proteina = findViewById(R.id.txt_proteina);
-        txt_carbos = findViewById(R.id.txt_carbos);
 
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
             @Override
@@ -71,6 +67,26 @@ public class NutricionActivity extends AppCompatActivity {
             }
         };
 
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.exo2semibold);
+
+
+        CircularProgressView progressCarbs = findViewById(R.id.progress_carbs);
+        CircularProgressView progressFat = findViewById(R.id.progress_fat);
+        CircularProgressView progressProtein = findViewById(R.id.progress_protein);
+
+        CircularProgressView progressCarbsK = findViewById(R.id.progress_carbsK);
+        CircularProgressView progressFatK = findViewById(R.id.progress_fatK);
+        CircularProgressView progressProteinK = findViewById(R.id.progress_proteinK);
+
+        progressCarbs.setTypeface(typeface);
+        progressFat.setTypeface(typeface);
+        progressProtein.setTypeface(typeface);
+
+        progressCarbsK.setTypeface(typeface);
+        progressFatK.setTypeface(typeface);
+        progressProteinK.setTypeface(typeface);
+
+
         appDB = Room.databaseBuilder(getApplicationContext(),AppDatabase.class,
                 "AppDB").addCallback(myCallBack).build();
                 anyChartView = findViewById(R.id.anyChartView);
@@ -78,10 +94,32 @@ public class NutricionActivity extends AppCompatActivity {
         loadNutritionData(new NutricionDataCallback() {
             @Override
             public void onNutritionDataLoaded() {
-                // Cuando los datos estén cargados, configura el gráfico
+                float carbs = (float) gramosCarbohidratos;
+                float fat = (float) gramosGrasas;
+                float protein = (float) gramosProteina;
+
+                float carbsK = (float) caloriasCarbohidratos;
+                float fatK = (float) caloriasGrasas;
+                float proteinK = (float) caloriasProteina;
+                float kcal = (float) caloriasTotales;
+
+                // Sumar todos los gramos para definir el máximo dinámico
+                float totalGramos = carbs + fat + protein;
+
+                // Usar la suma como valor máximo para cada ProgressView
+                progressCarbs.setProgress(carbs / totalGramos, String.format("%.2f", gramosCarbohidratos), 0xFF4285F4);
+                progressFat.setProgress(fat / totalGramos, String.format("%.2f", gramosGrasas), 0xFFFBBC05);
+                progressProtein.setProgress(protein / totalGramos, String.format("%.2f", gramosProteina), 0xFF34A853);
+
+                progressCarbsK.setProgress(carbsK / kcal, String.format("%.2f", caloriasCarbohidratos), 0xFF4285F4);
+                progressFatK.setProgress(fatK / kcal, String.format("%.2f", caloriasGrasas), 0xFFFBBC05);
+                progressProteinK.setProgress(proteinK / kcal, String.format("%.2f", caloriasProteina), 0xFF34A853);
+
+                // Configurar el gráfico después de cargar los datos
                 setupChartView();
             }
         });
+
     }
 
     private void setupChartView(){
@@ -92,55 +130,42 @@ public class NutricionActivity extends AppCompatActivity {
             dataEntries.add(new ValueDataEntry(macros[i],kcals[i]));
         }
 
-        pie.background().fill("#000000");
+        pie.background().fill("transparent");
 
         // Opcional: Cambiar el color del texto para que sea visible sobre fondo negro
         pie.labels().fontColor("#FFFFFF");
         pie.data(dataEntries);
-        pie.title("Kcal");
+        pie.title("Calorías");
         pie.animation(true);
+
+
         anyChartView.setChart(pie);
     }
 
     private void loadNutritionData(NutricionDataCallback callback) {
-        // Ejecutar la consulta en un hilo de fondo para no bloquear el hilo principal
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                // Obtener los datos desde la base de datos (ejemplo: obtener el primer dato de nutrición)
-                String currentUser = SharedPrefManager.getUsername(getApplicationContext());
-
-                if (currentUser != null) {
-                    // Si hay un usuario, puedes usarlo para filtrar los datos en la base de datos
-                    datoNutricion = appDB.getDatoNutricionDAO().getDatosNutricion(currentUser);
-                }
-
-                // Actualizar los TextViews en el hilo principal
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (datoNutricion != null) {
-                            // Aquí asignas los valores de la base de datos a los TextViews
-                            txt_kcal.setText(txt_kcal.getText() + " " + String.valueOf(datoNutricion.getCaloriasTotales()));
-                            kcal_grasa.setText(kcal_grasa.getText() + " " +String.valueOf(datoNutricion.getCaloriasGrasas()));
-                            kcal_prote.setText(kcal_prote.getText() + " " +String.valueOf(datoNutricion.getCaloriasProteina()));
-                            kcal_carbo.setText(kcal_carbo.getText() + " " +String.valueOf(datoNutricion.getCaloriasCarbohidratos()));
-                            txt_grasa.setText(txt_grasa.getText() + " " +String.valueOf(datoNutricion.getGramosGrasas()));
-                            txt_proteina.setText(txt_proteina.getText() + " " +String.valueOf(datoNutricion.getGramosProteina()));
-                            txt_carbos.setText(txt_carbos.getText() + " " +String.valueOf(datoNutricion.getGramosCarbohidratos()));
-
-                            kcals[0] = datoNutricion.getCaloriasGrasas();
-                            kcals[1] = datoNutricion.getCaloriasProteina();
-                            kcals[2] = datoNutricion.getCaloriasCarbohidratos();
-                        }
-
-                        // Llamamos al callback para indicar que los datos han sido cargados
-                        if (callback != null) {
-                            callback.onNutritionDataLoaded();
-                        }
-                    }
-                });
+        new Thread(() -> {
+            String currentUser = SharedPrefManager.getUsername(getApplicationContext());
+            if (currentUser != null) {
+                datoNutricion = appDB.getDatoNutricionDAO().getDatosNutricion(currentUser);
             }
+
+            runOnUiThread(() -> {
+                if (datoNutricion != null) {
+                    caloriasTotales = datoNutricion.getCaloriasTotales();
+                    caloriasGrasas = datoNutricion.getCaloriasGrasas();
+                    caloriasProteina = datoNutricion.getCaloriasProteina();
+                    caloriasCarbohidratos = datoNutricion.getCaloriasCarbohidratos();
+                    gramosGrasas = datoNutricion.getGramosGrasas();
+                    gramosProteina = datoNutricion.getGramosProteina();
+                    gramosCarbohidratos = datoNutricion.getGramosCarbohidratos();
+                    kcals[0] = caloriasGrasas;
+                    kcals[1] = caloriasProteina;
+                    kcals[2] = caloriasCarbohidratos;
+                }
+                if (callback != null) {
+                    callback.onNutritionDataLoaded();
+                }
+            });
         }).start();
     }
 
@@ -153,20 +178,19 @@ public class NutricionActivity extends AppCompatActivity {
     private void generarArchivoTXT() {
         String fileName = "nutricion_" + SharedPrefManager.getUsername(this) + ".txt";
         String contenido = "Reporte Nutricional\n\n"
-                + "Calorías Totales: " + txt_kcal.getText().toString() + " kcal\n"
-                + "Calorías Grasas: " + kcal_grasa.getText().toString() + " kcal\n"
-                + "Calorías Proteínas: " + kcal_prote.getText().toString() + " kcal\n"
-                + "Calorías Carbohidratos: " + kcal_carbo.getText().toString() + " kcal\n"
-                + "Gramos Grasas: " + txt_grasa.getText().toString() + " g\n"
-                + "Gramos Proteína: " + txt_proteina.getText().toString() + " g\n"
-                + "Gramos Carbohidratos: " + txt_carbos.getText().toString() + " g\n";
+                + "Calorías Totales: " + caloriasTotales + " kcal\n"
+                + "Calorías Grasas: " + caloriasGrasas + " kcal\n"
+                + "Calorías Proteínas: " + caloriasProteina + " kcal\n"
+                + "Calorías Carbohidratos: " + caloriasCarbohidratos + " kcal\n"
+                + "Gramos Grasas: " + gramosGrasas + " g\n"
+                + "Gramos Proteína: " + gramosProteina + " g\n"
+                + "Gramos Carbohidratos: " + gramosCarbohidratos + " g\n";
 
         try {
             File file = new File(getExternalFilesDir(null), fileName);
             FileOutputStream fos = new FileOutputStream(file);
             fos.write(contenido.getBytes());
             fos.close();
-
             Toast.makeText(this, "Archivo TXT generado: " + file.getAbsolutePath(), Toast.LENGTH_LONG).show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -190,13 +214,13 @@ public class NutricionActivity extends AppCompatActivity {
 
         paint.setTextSize(16);
         int y = 100;
-        canvas.drawText("Calorías Totales: " + txt_kcal.getText().toString() + " kcal", 50, y, paint);
-        canvas.drawText("Calorías Grasas: " + kcal_grasa.getText().toString() + " kcal", 50, y + 30, paint);
-        canvas.drawText("Calorías Proteínas: " + kcal_prote.getText().toString() + " kcal", 50, y + 60, paint);
-        canvas.drawText("Calorías Carbohidratos: " + kcal_carbo.getText().toString() + " kcal", 50, y + 90, paint);
-        canvas.drawText("Gramos Grasas: " + txt_grasa.getText().toString() + " g", 50, y + 120, paint);
-        canvas.drawText("Gramos Proteína: " + txt_proteina.getText().toString() + " g", 50, y + 150, paint);
-        canvas.drawText("Gramos Carbohidratos: " + txt_carbos.getText().toString() + " g", 50, y + 180, paint);
+        canvas.drawText("Calorías Totales: " + caloriasTotales + " kcal", 50, y, paint);
+        canvas.drawText("Calorías Grasas: " + caloriasGrasas + " kcal", 50, y + 30, paint);
+        canvas.drawText("Calorías Proteínas: " + caloriasProteina + " kcal", 50, y + 60, paint);
+        canvas.drawText("Calorías Carbohidratos: " + caloriasCarbohidratos + " kcal", 50, y + 90, paint);
+        canvas.drawText("Gramos Grasas: " + gramosGrasas + " g", 50, y + 120, paint);
+        canvas.drawText("Gramos Proteína: " + gramosProteina + " g", 50, y + 150, paint);
+        canvas.drawText("Gramos Carbohidratos: " + gramosCarbohidratos + " g", 50, y + 180, paint);
 
         pdfDocument.finishPage(page);
 
@@ -210,14 +234,19 @@ public class NutricionActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "Error al generar el PDF", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     public void exportarTXT(View view) {
+
         generarArchivoTXT();
+        verTXT(view);
     }
 
     public void exportarPDF(View view) {
+
         generarArchivoPDF();
+        verPDF(view);
     }
 
     private void abrirArchivo(File file, String mimeType) {
@@ -242,8 +271,4 @@ public class NutricionActivity extends AppCompatActivity {
         File file = new File(getExternalFilesDir(null), "nutricion_" + SharedPrefManager.getUsername(this) + ".pdf");
         abrirArchivo(file, "application/pdf");
     }
-
-
-
-
 }

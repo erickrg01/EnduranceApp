@@ -1,6 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.EnduranceAcademyApp" parent="Theme.AppCompat.NoActionBar">
+<<<<<<< HEAD
+=======
+
+        <item name="android:fontFamily">@font/exo2semibold</item>
+>>>>>>> d338020 (Primer commit del proyecto)
         <!-- Primary brand color. -->
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <!-- Secondary brand color. -->

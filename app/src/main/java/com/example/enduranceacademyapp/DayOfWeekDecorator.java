@@ -1,6 +1,9 @@
 package com.example.enduranceacademyapp;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
@@ -38,8 +41,13 @@ public class DayOfWeekDecorator implements DayViewDecorator {
 
     @Override
     public void decorate(DayViewFacade view) {
-        view.addSpan(new ForegroundColorSpan(Color.WHITE)); // Color del texto
-        view.addSpan(new BackgroundColorSpan(color)); // Fondo del día
+        view.addSpan(new ForegroundColorSpan(Color.BLACK)); // Color del texto
+        Drawable circularBackground = new ShapeDrawable(new OvalShape());
+        circularBackground.setBounds(0, 0, 1, 1); // Tamaño del círculo, ajustable
+        circularBackground.setTint(color); // Establecer el color de fondo
+
+        // Establecer el fondo circular al día
+        view.setBackgroundDrawable(circularBackground); // Fondo del día
     }
 
     public static void applyDecorators(MaterialCalendarView calendarView, AppDatabase appDB, String userName) {
