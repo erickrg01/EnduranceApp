@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_frag"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.UserFragment"
+    android:background="@drawable/purple_background">
+
+
+    <ImageView
+        android:id="@+id/userImageView"
+        android:background="@color/white"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"/>
+
+    <TextView
+        android:id="@+id/txtFormatoFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Formato del calendario"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        />
+    <RadioGroup
+        android:id="@+id/radioFormatoFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txtFormatoFecha"
+        >
+        <RadioButton
+            android:id="@+id/radioSemanal"
+            android:text="Semanal"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/radioMensual"
+            android:text="Mensual"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/delete_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioFormatoFecha"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="Borrar cuenta"
+        android:padding="5dp"
+        android:background="@drawable/social_btn_background"/>
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/delete_account"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="Cerrar sesión"
+        android:padding="5dp"
+        android:background="@drawable/social_btn_background"/>
+
+
+</RelativeLayout>

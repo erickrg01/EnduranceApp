@@ -1,0 +1,310 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 7,
+    "identityHash": "16f5bdfe7ced8fc5886598b608f2f003",
+    "entities": [
+      {
+        "tableName": "Users",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `usuario` TEXT, `password` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usuario",
+            "columnName": "usuario",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "user_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "DatosNutricion",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`dato_nutricion_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `usuario` TEXT, `gramos_proteina` REAL NOT NULL, `gramos_grasas` REAL NOT NULL, `gramos_carbohidratos` REAL NOT NULL, `calorias_totales` REAL NOT NULL, `calorias_proteina` REAL NOT NULL, `calorias_grasas` REAL NOT NULL, `calorias_carbohidratos` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "dato_nutricion_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usuario",
+            "columnName": "usuario",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gramosProteina",
+            "columnName": "gramos_proteina",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gramosGrasas",
+            "columnName": "gramos_grasas",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gramosCarbohidratos",
+            "columnName": "gramos_carbohidratos",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "caloriasTotales",
+            "columnName": "calorias_totales",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "caloriasProteina",
+            "columnName": "calorias_proteina",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "caloriasGrasas",
+            "columnName": "calorias_grasas",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "caloriasCarbohidratos",
+            "columnName": "calorias_carbohidratos",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "dato_nutricion_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_DatosNutricion_usuario",
+            "unique": true,
+            "columnNames": [
+              "usuario"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_DatosNutricion_usuario` ON `${TABLE_NAME}` (`usuario`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Rutinas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`r_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre_rutina` TEXT, `grupo_muscular` TEXT, `ejercicio` TEXT, `repeticiones` INTEGER NOT NULL, `series` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "r_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombreRutina",
+            "columnName": "nombre_rutina",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "grupoMuscular",
+            "columnName": "grupo_muscular",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ejercicio",
+            "columnName": "ejercicio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "repeticiones",
+            "columnName": "repeticiones",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "series",
+            "columnName": "series",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "r_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "user_rutinas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_user_rutina` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_usuario` INTEGER NOT NULL, `id_rutina` INTEGER NOT NULL, `lunes` INTEGER NOT NULL, `martes` INTEGER NOT NULL, `miercoles` INTEGER NOT NULL, `jueves` INTEGER NOT NULL, `viernes` INTEGER NOT NULL, `sabado` INTEGER NOT NULL, `domingo` INTEGER NOT NULL, `tipoEntrenamiento` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id_user_rutina",
+            "columnName": "id_user_rutina",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idUsuario",
+            "columnName": "id_usuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idRutina",
+            "columnName": "id_rutina",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lunes",
+            "columnName": "lunes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "martes",
+            "columnName": "martes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "miercoles",
+            "columnName": "miercoles",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "jueves",
+            "columnName": "jueves",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "viernes",
+            "columnName": "viernes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sabado",
+            "columnName": "sabado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "domingo",
+            "columnName": "domingo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipoEntrenamiento",
+            "columnName": "tipoEntrenamiento",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id_user_rutina"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "RegistroEntrenamientos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `usuario` TEXT, `fecha` TEXT, `repeticiones` INTEGER NOT NULL, `series` INTEGER NOT NULL, `rutina` TEXT, `anotaciones` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usuario",
+            "columnName": "usuario",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "repeticiones",
+            "columnName": "repeticiones",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "series",
+            "columnName": "series",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rutina",
+            "columnName": "rutina",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "anotaciones",
+            "columnName": "anotaciones",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16f5bdfe7ced8fc5886598b608f2f003')"
+    ]
+  }
+}

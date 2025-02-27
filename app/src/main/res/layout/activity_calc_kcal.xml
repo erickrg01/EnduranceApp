@@ -1,0 +1,144 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/purple_background">
+
+
+    <EditText
+        android:id="@+id/editTextEdad"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:ems="4"
+        android:inputType="number"
+        android:background="@drawable/edittext_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp" />
+
+    <TextView
+        android:id="@+id/e_edad"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edad"
+        android:textColor="@color/white"
+        android:layout_marginTop="150dp"
+        android:layout_toLeftOf="@+id/editTextEdad"
+        android:layout_marginRight="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextPeso"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:ems="4"
+        android:inputType="number"
+        android:background="@drawable/edittext_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/editTextEdad"/>
+
+    <TextView
+        android:id="@+id/e_peso"
+        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:text="@string/peso"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/editTextEdad"
+        android:layout_toLeftOf="@+id/editTextPeso"
+        android:layout_marginRight="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextAltura"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:ems="4"
+        android:inputType="number"
+        android:background="@drawable/edittext_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/editTextPeso"/>
+
+    <TextView
+        android:id="@+id/e_altura"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/altura"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/editTextPeso"
+        android:layout_toLeftOf="@+id/editTextAltura"
+        android:layout_marginRight="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextVolumen"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:ems="4"
+        android:inputType="number"
+        android:background="@drawable/edittext_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/editTextAltura"/>
+
+    <TextView
+        android:id="@+id/e_volumen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/volumen"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/e_altura"
+        android:layout_toLeftOf="@+id/editTextAltura"
+        android:layout_marginRight="10dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/e_volumen"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:id="@+id/radioHombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hombre"
+            android:textColor="@color/white"/>
+
+
+        <RadioButton
+            android:id="@+id/radioMujer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mujer"
+            android:textColor="@color/white"/>
+
+    </RadioGroup>
+    <Spinner
+        android:id="@+id/spinnerEjercicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioGroupGenero"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:padding="10dp"/>
+
+
+
+    <Button
+        android:id="@+id/btnCalcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/spinnerEjercicio"
+        android:layout_marginTop="20dp"
+        android:onClick="calcular"
+        android:background="@drawable/social_btn_background"/>
+
+</RelativeLayout>

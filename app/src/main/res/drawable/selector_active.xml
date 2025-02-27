@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- selector_active.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado activo o seleccionado -->
+    <item android:state_checked="true" android:drawable="@drawable/act_item_bg" />
+    <!-- Estado no seleccionado -->
+    <item android:drawable="@android:color/transparent" />
+</selector>

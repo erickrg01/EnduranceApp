@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ScrollView para contenido desplazable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/news_frag">
+
+            <ImageButton
+                android:id="@+id/news1"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@null"
+                android:src="@drawable/new1"
+                android:contentDescription="Noticia 1"/>
+
+            <ImageButton
+                android:id="@+id/news2"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_below="@id/news1"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@null"
+                android:src="@drawable/new2"
+                android:contentDescription="Noticia 2"/>
+
+            <ImageButton
+                android:id="@+id/news3"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_below="@id/news2"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@null"
+                android:src="@drawable/new3"
+                android:contentDescription="Noticia 3"/>
+
+            <ImageButton
+                android:id="@+id/news4"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_below="@id/news3"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@null"
+                android:src="@drawable/new1"
+                android:contentDescription="Noticia 4"/>
+
+            <ImageButton
+                android:id="@+id/news5"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_below="@id/news4"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@null"
+                android:src="@drawable/new2"
+                android:contentDescription="Noticia 5"/>
+
+            <ImageButton
+                android:id="@+id/news6"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_below="@id/news5"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@null"
+                android:src="@drawable/new3"
+                android:contentDescription="Noticia 6"/>
+        </RelativeLayout>
+    </ScrollView>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="65dp"
+        android:src="@drawable/baseline_add_24"
+        android:contentDescription="Añadir"
+        android:backgroundTint="@color/black"
+        android:tint="@color/black" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_option1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="65dp"
+        android:visibility="gone"
+        android:src="@drawable/baseline_person_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_option2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="65dp"
+        android:visibility="gone"
+        android:src="@drawable/baseline_new_releases_24" />
+</FrameLayout>

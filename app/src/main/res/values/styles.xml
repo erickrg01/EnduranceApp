@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Un fondo de color personalizado para la splash -->
+        <item name="android:windowBackground">@drawable/esolanegra</item>
+        <!-- Otros ajustes de diseño, como el color del texto -->
+    </style>
+</resources>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name"></string>
+    <string name="descripci_n_de_la_imagen">Descripción de la imagen</string>
+    <string name="login">login</string>
+    <string name="register">register</string>
+    <string name="modo_entrenador">modo entrenador</string>
+    <string name="volver">volver</string>
+    <string name="listo">listo</string>
+    <string name="mi_rutina">Mi Rutina</string>
+    <string name="registro_de_entrenamientos">Registro de entrenamientos</string>
+    <string name="nutrici_n">Nutrición</string>
+    <string name="crear_rutina">Crear rutina</string>
+    <string name="altura">Altura</string>
+    <string name="peso">Peso</string>
+    <string name="edad">Edad</string>
+    <string name="kcal">Kcal totales:</string>
+    <string name="gramos_de_grasa_totales">Gramos de grasa totales:</string>
+    <string name="gramos_totales_de_prote_na">Gramos totales de proteína</string>
+    <string name="gramos_totales_de_carbohidratos">Gramos totales de carbohidratos:</string>
+    <string name="calcular_calor_as">Calcular calorías</string>
+    <string name="volumen">Volumen</string>
+    <string name="default_web_client_id">615067656770-p5ngeb7mgtj5kda86tqbt10sdppqvaqa.apps.googleusercontent.com</string>
+</resources>

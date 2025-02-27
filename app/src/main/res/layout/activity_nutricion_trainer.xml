@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NutricionActivity"
+    android:background="@drawable/purple_background">
+
+
+    <TextView
+        android:id="@+id/txt_kcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kcal"
+        android:textColor="@color/white"
+        android:layout_marginTop="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/kcal_grasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kcal de grasa"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/txt_kcal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/kcal_prote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kcal de proteina"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/kcal_grasa"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/kcal_carbo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kcal de carbohidratos"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/kcal_prote"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/txt_grasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gramos_de_grasa_totales"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/kcal_carbo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/txt_proteina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gramos_totales_de_prote_na"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/txt_grasa"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/txt_carbos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gramos_totales_de_carbohidratos"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/txt_proteina"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="10dp"/>
+
+
+    <Spinner
+        android:id="@+id/spinnerUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/txt_carbos"
+        android:padding="10dp"/>
+
+    <com.anychart.AnyChartView
+        android:id="@+id/anyChartView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/txt_carbos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+</RelativeLayout>

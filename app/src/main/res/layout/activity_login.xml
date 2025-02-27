@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/purple_background">
+
+    <ImageView
+        android:id="@+id/miLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ecircularazul"
+        android:contentDescription="Descripción de la imagen"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"/>
+    <EditText
+        android:id="@+id/etUser"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:drawableStart="@drawable/baseline_person_24"
+        android:layout_below="@id/miLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint=" Usuario"
+        android:background="@drawable/edittext_background"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_below="@id/etUser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint=" Contraseña"
+        android:drawablePadding="4dp"
+        android:padding="8dp"
+        android:drawableStart="@drawable/password"
+        android:background="@drawable/edittext_background" />
+
+    <ImageButton
+        android:id="@+id/btListo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etPassword"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="0dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/btn_login"
+        android:textSize="23dp" />
+
+    <Button
+        android:id="@+id/btGoogle"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/btListo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:textSize="16dp"
+        android:onClick="volver"
+        android:text="Google"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        style="@android:style/Widget.Button"
+        android:background="@drawable/social_btn_background"
+        android:drawableEnd="@drawable/google"
+        android:padding="16dp"/>
+
+</RelativeLayout>

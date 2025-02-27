@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "615067656770",
+    "firebase_url": "https://enduranceacademy-582c0-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "enduranceacademy-582c0",
+    "storage_bucket": "enduranceacademy-582c0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615067656770:android:2a91f6c46eaa3f65b683db",
+        "android_client_info": {
+          "package_name": "com.example.enduranceacademyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615067656770-p5ngeb7mgtj5kda86tqbt10sdppqvaqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.enduranceacademyapp",
+            "certificate_hash": "9b5a9fc7102e88a07ee5004e1e598e07cd757c1c"
+          }
+        },
+        {
+          "client_id": "615067656770-lhnb7pgd4qkmmd8rprglnknafddi48bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLlNZKR01d5km4LDGXsmgOpljguMYFu3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615067656770-lhnb7pgd4qkmmd8rprglnknafddi48bl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
