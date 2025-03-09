@@ -1,19 +1,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/purple_background">
+    android:background="@drawable/gradient_background">
 
     <ImageView
         android:id="@+id/miLogo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ecircularazul"
+        android:src="@drawable/ecircularblanco"
         android:contentDescription="Descripción de la imagen"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="120dp"
         android:layout_centerHorizontal="true"/>
     <EditText
         android:id="@+id/etUser"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
@@ -21,47 +21,49 @@
         android:layout_below="@id/miLogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:ems="12"
+        android:ems="10"
         android:hint=" Usuario"
+        android:drawablePadding="8dp"
+        android:paddingHorizontal="10dp"
         android:background="@drawable/edittext_background"/>
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:layout_below="@id/etUser"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:ems="12"
+        android:ems="10"
         android:inputType="textPassword"
         android:hint=" Contraseña"
-        android:drawablePadding="4dp"
-        android:padding="8dp"
+        android:drawablePadding="8dp"
+        android:paddingHorizontal="10dp"
         android:drawableStart="@drawable/password"
-        android:background="@drawable/edittext_background"/>
+        android:background="@drawable/edittext_background" />
 
     <EditText
         android:id="@+id/etPasswordConfirm"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:layout_below="@id/etPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:ems="12"
+        android:ems="10"
         android:inputType="textPassword"
-        android:hint=" Confirmar contraseña"
-        android:drawablePadding="4dp"
-        android:padding="8dp"
+        android:hint=" Contraseña"
+        android:drawablePadding="8dp"
+        android:paddingHorizontal="10dp"
         android:drawableStart="@drawable/password"
-        android:background="@drawable/edittext_background"/>
+        android:background="@drawable/edittext_background" />
 
     <ImageButton
         android:id="@+id/btListo"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/etPasswordConfirm"
         android:layout_alignParentEnd="true"
@@ -78,7 +80,7 @@
         android:layout_below="@id/btListo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:textSize="16dp"
+        android:textSize="18dp"
         android:text="Google"
         android:textStyle="bold"
         android:textColor="#ffffff"

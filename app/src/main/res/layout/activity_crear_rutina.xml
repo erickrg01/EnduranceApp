@@ -6,76 +6,82 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CrearRutinaActivity"
-    android:background="@drawable/purple_background">
+    android:background="@drawable/gradient_background">
 
-    <EditText
-        android:id="@+id/txt_nombre"
-        android:layout_width="wrap_content"
-        android:ems="10"
-        android:layout_height="32dp"
-        android:padding="5dp"
-        android:inputType="text"
-        android:background="@drawable/social_btn_background"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="220dp"
-        android:hint="Nombre de la rutina"
-        android:textColor="@color/white"/>
-
-    <!-- Spinner de Grupo Muscular -->
-    <Spinner
-        android:padding="10dp"
-        android:id="@+id/spinner_grupo_muscular"
+    <!-- Contenedor principal con LinearLayout vertical -->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_nombre"
-        android:layout_margin="30dp"/>
-
-    <!-- Spinner de Ejercicio -->
-    <Spinner
-        android:id="@+id/spinner_ejercicio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner_grupo_muscular"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="30dp"
-        android:padding="10dp"/>
-
-    <!-- Otros campos -->
-    <EditText
-        android:id="@+id/txt_repes"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:padding="5dp"
-        android:ems="5"
-        android:inputType="number"
-        android:layout_below="@+id/spinner_ejercicio"
-        android:background="@drawable/social_btn_background"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="30dp"
-        android:hint="Repeticiones"/>
-
-    <EditText
-        android:id="@+id/txt_series"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:padding="5dp"
-        android:ems="5"
-        android:inputType="number"
-        android:layout_below="@+id/spinner_ejercicio"
-        android:background="@drawable/social_btn_background"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:hint="Series"
-        android:layout_toRightOf="@+id/txt_repes"/>
+        android:layout_marginTop="100dp"
+        android:padding="20dp">
 
-    <Button
-        android:id="@+id/guardarRutina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_series"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"
-        android:text="Guardar rutina"
-        android:background="@drawable/social_btn_background"/>
+        <!-- Campo Nombre de la rutina -->
+        <EditText
+            android:id="@+id/txt_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:textSize="18dp"
+            android:padding="5dp"
+            android:inputType="text"
+            android:background="@drawable/edittext_background"
+            android:hint="Nombre de la rutina"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+
+        <!-- Spinner de Grupo Muscular -->
+        <Spinner
+            android:id="@+id/spinner_grupo_muscular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="40dp"/>
+
+        <!-- Spinner de Ejercicio -->
+        <Spinner
+            android:id="@+id/spinner_ejercicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:padding="10dp"/>
+
+        <!-- Campo de Repeticiones -->
+        <EditText
+            android:id="@+id/txt_repes"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:textSize="18dp"
+            android:inputType="number"
+            android:background="@drawable/edittext_background"
+            android:hint="Repeticiones"
+            android:gravity="center"
+            android:layout_marginTop="40dp"/>
+
+        <!-- Campo de Series -->
+        <EditText
+            android:id="@+id/txt_series"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:textSize="18dp"
+            android:inputType="number"
+            android:background="@drawable/edittext_background"
+            android:hint="Series"
+            android:gravity="center"
+            android:layout_marginTop="40dp"/>
+
+        <!-- Botón de Guardar Rutina -->
+        <Button
+            android:id="@+id/guardarRutina"
+            android:layout_width="match_parent"
+            android:textSize="22dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="5dp"
+            android:text="Guardar rutina"
+            android:drawableStart="@drawable/baseline_assignment_addw_24"
+            android:background="@drawable/gradient_gray_black"
+            android:padding="10dp"/>
+    </LinearLayout>
+
 </RelativeLayout>

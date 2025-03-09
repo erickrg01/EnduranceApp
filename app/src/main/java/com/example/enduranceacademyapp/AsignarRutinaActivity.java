@@ -6,6 +6,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.GridLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -214,5 +217,50 @@ public class AsignarRutinaActivity extends AppCompatActivity {
             appDB.getUser_RutinaDAO().insert(nUserRutina);
             runOnUiThread(() -> Toast.makeText(AsignarRutinaActivity.this, "Rutina asignada correctamente", Toast.LENGTH_SHORT).show());
         });
+    }
+
+    private void generarImagenes(int numSeries) {
+        GridLayout imageContainer = findViewById(R.id.imageContainer);
+        imageContainer.removeAllViews(); // Limpiar imágenes previas
+
+        int numColumns = 3; // Número de columnas en la cuadrícula
+        int imageSize = getResources().getDisplayMetrics().widthPixels / numColumns - 40; // Ajustar tamaño de imagen
+
+        for (int i = 0; i < numSeries; i++) {
+            ImageView imageView = new ImageView(this);
+
+            // Crear LayoutParams con tamaño dinámico y margen
+            GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
+            layoutParams.width = imageSize;
+            layoutParams.height = imageSize;
+            layoutParams.setMargins(10, 10, 10, 10); // Márgenes entre imágenes
+            imageView.setBackgroundResource(R.drawable.rounded_background);
+            imageView.setLayoutParams(layoutParams);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setImageResource(R.drawable.bp2); // Reemplazar con imagen real
+            imageContainer.addView(imageView);
+        }
+    }
+
+
+
+    public void toggleView(View view) {
+        LinearLayout textContainer = findViewById(R.id.textViewContainer);
+        GridLayout imageContainer = findViewById(R.id.imageContainer);
+        Button toggleButton = findViewById(R.id.btnToggleView);
+
+        if (textContainer.getVisibility() == View.VISIBLE) {
+            textContainer.setVisibility(View.GONE);
+            imageContainer.setVisibility(View.VISIBLE);
+            toggleButton.setText("Modo Rutina");
+
+            // Obtener el número de series y generar imágenes
+            int numSeries = Integer.parseInt(txtSeries.getText().toString().replaceAll("[^0-9]", ""));
+            generarImagenes(numSeries);
+        } else {
+            textContainer.setVisibility(View.VISIBLE);
+            imageContainer.setVisibility(View.GONE);
+            toggleButton.setText("Modo Imagen");
+        }
     }
 }

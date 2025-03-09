@@ -101,11 +101,11 @@ public class DayOfWeekDecorator implements DayViewDecorator {
     private static int getColorForTrainingType(String tipoEntrenamiento) {
         switch (tipoEntrenamiento.toLowerCase()) {
             case "fuerza":
-                return Color.RED;
+                return Color.parseColor("#EF5350");
             case "resistencia":
-                return Color.BLUE;
+                return Color.parseColor("#BBDEFB");
             case "hipertrofia":
-                return Color.GREEN;
+                return Color.parseColor("#A5D6A7");
             default:
                 return Color.GRAY;
         }

@@ -78,7 +78,6 @@ public class HomeFragment extends Fragment {
         loadDatabase();
 
         // Configurar eventos de botones
-        view.findViewById(R.id.rutina).setOnClickListener(this::miRutina);
         view.findViewById(R.id.nutricion).setOnClickListener(this::btnNutri);
         view.findViewById(R.id.regs_entre).setOnClickListener(this::btnRegEntrenamiento);
 
@@ -155,11 +154,6 @@ public class HomeFragment extends Fragment {
                 Log.e("HomeFragment", "Error obteniendo información del día", e);
             }
         }).start();
-    }
-
-    private void miRutina(View vista) {
-        if (!isAdded() || getActivity() == null) return;
-        startActivity(new Intent(getActivity(), MiRutinaActivity.class));
     }
 
     private void btnNutri(View vista) {

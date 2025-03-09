@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
-=======
->>>>>>> d338020 (Primer commit del proyecto)
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,136 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NutricionActivity"
-<<<<<<< HEAD
-    android:background="@drawable/purple_background">
-
-
-    <TextView
-        android:id="@+id/txt_kcal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/kcal"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/btn_kcal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/kcal_grasa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kcal de grasa"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/txt_kcal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/kcal_prote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kcal de proteina"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/kcal_grasa"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/kcal_carbo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kcal de carbohidratos"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/kcal_prote"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/txt_grasa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gramos_de_grasa_totales"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/kcal_carbo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/txt_proteina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gramos_totales_de_prote_na"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/txt_grasa"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/txt_carbos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gramos_totales_de_carbohidratos"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/txt_proteina"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-
-=======
     android:background="@drawable/gradient_background">
 
     <!-- Botón de calcular calorías -->
->>>>>>> d338020 (Primer commit del proyecto)
+
     <Button
         android:id="@+id/btn_kcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/calcular_calor_as"
         android:layout_centerHorizontal="true"
-<<<<<<< HEAD
-        android:layout_marginTop="80dp"
-        android:onClick="calc_kcal"
-        android:background="@drawable/social_btn_background"/>
-    <Button
-        android:id="@+id/btn_exportar_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Exportar TXT"
-        android:layout_below="@+id/txt_carbos"
-        android:layout_marginLeft="220dp"
-        android:onClick="exportarTXT"
-        android:layout_marginTop="10dp"/>
 
-    <Button
-        android:id="@+id/btn_exportar_pdf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Exportar PDF"
-        android:layout_below="@+id/txt_carbos"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="10dp"
-        android:onClick="exportarPDF" />
-
-    <Button
-        android:id="@+id/btn_ver_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver TXT"
-        android:layout_below="@+id/btn_exportar_pdf"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="15dp"
-        android:onClick="verTXT"/>
-
-    <Button
-        android:id="@+id/btn_ver_pdf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver PDF"
-        android:layout_below="@+id/btn_exportar_txt"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="15dp"
-        android:onClick="verPDF"/>
-=======
         android:layout_marginTop="40dp"
         android:onClick="calc_kcal"
         android:background="@drawable/gradient_gray_black"
@@ -393,26 +271,15 @@
             />
     </LinearLayout>
 
->>>>>>> d338020 (Primer commit del proyecto)
-
 
 
     <com.anychart.AnyChartView
         android:id="@+id/anyChartView"
-<<<<<<< HEAD
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@id/txt_carbos"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"/>
-
-=======
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_below="@id/btn_kcal"
         android:layout_centerHorizontal="true"
         android:background="@drawable/rounded_background"
         android:layout_marginTop="450dp"/>
->>>>>>> d338020 (Primer commit del proyecto)
 
 </RelativeLayout>

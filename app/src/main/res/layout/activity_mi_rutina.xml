@@ -6,103 +6,148 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MiRutinaActivity"
-    android:background="@drawable/purple_background">
+    android:background="@drawable/gradient_background">
 
-    <TextView
-        android:id="@+id/txtNombreRutina"
-        android:layout_width="wrap_content"
+    <!-- Contenedor de información -->
+    <LinearLayout
+        android:id="@+id/textViewContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre de la rutina:"
-        android:textColor="@color/white"
-        android:textSize="25dp"
+        android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"/>
-    <TextView
-        android:id="@+id/txtGrupoMuscular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Grupo muscular:"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/txtNombreRutina"
-        android:layout_marginTop="30dp"/>
-    <TextView
-        android:id="@+id/txtEjercicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ejercicio:"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/txtGrupoMuscular"
-        android:layout_marginTop="30dp"/>
-    <TextView
-        android:id="@+id/numSeries"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtEjercicio"
-        android:text="Series:"
-        android:textColor="@color/white"
-        android:textSize="25dp"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="60dp"/>
-    <TextView
-        android:id="@+id/numRepeticiones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtEjercicio"
-        android:layout_toRightOf="@+id/numSeries"
-        android:text="Repeticiones:"
-        android:textSize="25dp"
-        android:textColor="@color/white"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="40dp"/>
+        android:layout_marginHorizontal="10dp"
+        android:padding="15dp"
+        android:background="@drawable/gradient_gray_white"> <!-- Fondo común -->
 
+        <TextView
+            android:id="@+id/txtNombreRutina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre de la rutina:"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/txtGrupoMuscular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grupo muscular:"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/txtEjercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ejercicio:"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/numSeries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Series:"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/numRepeticiones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repeticiones:"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <!-- Contenedor dinámico para las imágenes -->
+    <GridLayout
+        android:id="@+id/imageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        >
+    </GridLayout>
+
+
+    <!-- Campo de anotaciones -->
     <EditText
         android:id="@+id/etxAnotaciones"
-        android:layout_above="@+id/regRepes"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="15dp"
-        android:layout_height="120dp"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
+        android:layout_above="@+id/regRepes"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginBottom="30dp"
-        android:hint="Escribe tus anotaciones necesarias aquí"/>
+        android:hint="Escribe tus anotaciones necesarias aquí"
+        android:gravity="bottom"
+        android:background="@drawable/edittext_background"/>
 
+    <!-- Campo de número de repeticiones -->
     <EditText
         android:id="@+id/regRepes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:textSize="18dp"
         android:layout_centerHorizontal="true"
-        android:hint="Numero de repeticiones"
-        android:textSize="24dp"
+        android:hint="Número de repeticiones"
         android:layout_above="@+id/regSeries"
         android:layout_marginBottom="30dp"
-        />
+        android:layout_marginHorizontal="10dp"
+        android:gravity="center"
+        android:background="@drawable/edittext_background"/>
+
+    <!-- Campo de número de series -->
     <EditText
         android:id="@+id/regSeries"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:textSize="18dp"
         android:layout_centerHorizontal="true"
-        android:hint="Numero de series"
-        android:textSize="24dp"
+        android:hint="Número de series"
         android:layout_above="@+id/registrarEntrenamientoBtn"
         android:layout_marginBottom="30dp"
-        />
+        android:layout_marginHorizontal="10dp"
+        android:gravity="center"
+        android:background="@drawable/edittext_background"/>
 
+    <!-- Botón para alternar entre fotos e información -->
+    <Button
+        android:id="@+id/btnToggleView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_above="@+id/etxAnotaciones"
+        android:layout_marginBottom="15dp"
+        android:layout_marginHorizontal="10dp"
+        android:text="Modo Imagen"
+        android:background="@drawable/gradient_gray_black"
+        android:onClick="toggleView"
+        android:drawableStart="@drawable/baseline_camera_24"
+        android:paddingHorizontal="80dp"
+        android:textSize="20sp"/>
+
+    <!-- Botón de registro -->
     <Button
         android:id="@+id/registrarEntrenamientoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:hint="Registrar entrenamiento"
-        android:background="@drawable/social_btn_background"
-        android:padding="5dp"
+        android:layout_marginBottom="40dp"
+        android:text="Registrar entrenamiento"
+        android:background="@drawable/gradient_gray_black"
+        android:layout_margin="10dp"
+        android:drawableStart="@drawable/baseline_assignment_addw_24"
         android:onClick="regEntrenamiento"
-        android:textSize="16dp"
-        />
-
+        android:paddingHorizontal="60dp"
+        android:textSize="22sp"/>
 </RelativeLayout>

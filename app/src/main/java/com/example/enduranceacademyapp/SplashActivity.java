@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
 
         // Configurar la imagen
         ImageView splashImage = findViewById(R.id.splash_image);
-        splashImage.setImageResource(R.drawable.enduranceacademynegro); // Imagen personalizada
+        splashImage.setImageResource(R.drawable.enduranceacademyblanco); // Imagen personalizada
 
         // Inicializar Firebase Auth
         mAuth = FirebaseAuth.getInstance();

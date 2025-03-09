@@ -1,6 +1,7 @@
 package com.example.enduranceacademyapp;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -25,6 +27,7 @@ import com.example.enduranceacademyapp.data.DatoNutricion;
 import com.example.enduranceacademyapp.data.Rutina;
 import com.example.enduranceacademyapp.data.SharedPrefManager;
 import com.example.enduranceacademyapp.data.User;
+import com.example.enduranceacademyapp.fragments.CircularProgressView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,8 @@ public class NutricionTrainerActivity extends AppCompatActivity {
 
     AppDatabase appDB;
     Spinner spinnerUsuarios;
-    TextView txt_kcal, kcal_grasa, kcal_prote, kcal_carbo, txt_grasa, txt_proteina, txt_carbos;
+    double caloriasTotales, caloriasGrasas, caloriasProteina, caloriasCarbohidratos;
+    double gramosGrasas, gramosProteina, gramosCarbohidratos;
     AnyChartView anyChartView;
     Pie pieChart;  // Guardar referencia al gráfico
     String[] macros = {"Kcal Grasas", "Kcal Proteinas", "Kcal Carbohidratos"};
@@ -46,16 +50,28 @@ public class NutricionTrainerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutricion_trainer);
 
-        // Inicializar vistas
-        txt_kcal = findViewById(R.id.txt_kcal);
-        kcal_grasa = findViewById(R.id.kcal_grasa);
-        kcal_prote = findViewById(R.id.kcal_prote);
-        kcal_carbo = findViewById(R.id.kcal_carbo);
-        txt_grasa = findViewById(R.id.txt_grasa);
-        txt_proteina = findViewById(R.id.txt_proteina);
-        txt_carbos = findViewById(R.id.txt_carbos);
+
         spinnerUsuarios = findViewById(R.id.spinnerUsuarios);
         anyChartView = findViewById(R.id.anyChartView);
+
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.exo2semibold);
+
+
+        CircularProgressView progressCarbs = findViewById(R.id.progress_carbs);
+        CircularProgressView progressFat = findViewById(R.id.progress_fat);
+        CircularProgressView progressProtein = findViewById(R.id.progress_protein);
+
+        CircularProgressView progressCarbsK = findViewById(R.id.progress_carbsK);
+        CircularProgressView progressFatK = findViewById(R.id.progress_fatK);
+        CircularProgressView progressProteinK = findViewById(R.id.progress_proteinK);
+
+        progressCarbs.setTypeface(typeface);
+        progressFat.setTypeface(typeface);
+        progressProtein.setTypeface(typeface);
+
+        progressCarbsK.setTypeface(typeface);
+        progressFatK.setTypeface(typeface);
+        progressProteinK.setTypeface(typeface);
 
         appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "AppDB")
                 .fallbackToDestructiveMigration()
@@ -69,7 +85,7 @@ public class NutricionTrainerActivity extends AppCompatActivity {
         pieChart = AnyChart.pie();
         updateChartData();  // Cargar datos iniciales
 
-        pieChart.background().fill("#000000");
+        pieChart.background().fill("transparent");
         pieChart.labels().fontColor("#FFFFFF");
         pieChart.title("Kcal");
         pieChart.animation(true);
@@ -123,37 +139,58 @@ public class NutricionTrainerActivity extends AppCompatActivity {
             runOnUiThread(() -> {
                 if (datoNutricion != null) {
                     // Guardar valores previos y concatenar nueva información
-                    txt_kcal.setText(txt_kcal.getText() + " " + datoNutricion.getCaloriasTotales());
-                    kcal_grasa.setText(kcal_grasa.getText() + " " + datoNutricion.getCaloriasGrasas());
-                    kcal_prote.setText(kcal_prote.getText() + " " + datoNutricion.getCaloriasProteina());
-                    kcal_carbo.setText(kcal_carbo.getText() + " " + datoNutricion.getCaloriasCarbohidratos());
-                    txt_grasa.setText(txt_grasa.getText() + " " + datoNutricion.getGramosGrasas());
-                    txt_proteina.setText(txt_proteina.getText() + " " + datoNutricion.getGramosProteina());
-                    txt_carbos.setText(txt_carbos.getText() + " " + datoNutricion.getGramosCarbohidratos());
+                    caloriasGrasas = datoNutricion.getCaloriasGrasas();
+                    caloriasProteina = datoNutricion.getCaloriasProteina();
+                    caloriasCarbohidratos = datoNutricion.getCaloriasCarbohidratos();
+                    gramosGrasas = datoNutricion.getGramosGrasas();
+                    gramosProteina = datoNutricion.getGramosProteina();
+                    gramosCarbohidratos = datoNutricion.getGramosCarbohidratos();
 
                     // Actualizar valores en la gráfica
-                    kcals[0] += datoNutricion.getCaloriasGrasas();
-                    kcals[1] += datoNutricion.getCaloriasProteina();
-                    kcals[2] += datoNutricion.getCaloriasCarbohidratos();
+                    kcals[0] += caloriasGrasas;
+                    kcals[1] += caloriasProteina;
+                    kcals[2] += caloriasCarbohidratos;
+
                 } else {
                     // Si no hay datos previos, inicializar normalmente
-                    txt_kcal.setText("0");
-                    kcal_grasa.setText("0");
-                    kcal_prote.setText("0");
-                    kcal_carbo.setText("0");
-                    txt_grasa.setText("0");
-                    txt_proteina.setText("0");
-                    txt_carbos.setText("0");
-
                     kcals[0] = 0;
                     kcals[1] = 0;
                     kcals[2] = 0;
+                    caloriasGrasas = 0;
+                    caloriasProteina = 0;
+                    caloriasCarbohidratos = 0;
+                    gramosGrasas = 0;
+                    gramosProteina = 0;
+                    gramosCarbohidratos = 0;
                 }
 
-                updateChartData();  // Actualizar la gráfica con los nuevos valores
+                // Sumar todos los gramos para definir el máximo dinámico
+                float totalGramos = (float) (gramosGrasas + gramosProteina + gramosCarbohidratos);
+                float totalKcal = (float) (caloriasGrasas + caloriasProteina + caloriasCarbohidratos);
+
+                // Actualizar los CircularProgressView
+                CircularProgressView progressCarbs = findViewById(R.id.progress_carbs);
+                CircularProgressView progressFat = findViewById(R.id.progress_fat);
+                CircularProgressView progressProtein = findViewById(R.id.progress_protein);
+
+                CircularProgressView progressCarbsK = findViewById(R.id.progress_carbsK);
+                CircularProgressView progressFatK = findViewById(R.id.progress_fatK);
+                CircularProgressView progressProteinK = findViewById(R.id.progress_proteinK);
+
+                progressCarbs.setProgress((float) (gramosCarbohidratos / totalGramos), String.format("%.2f", gramosCarbohidratos), 0xFF4285F4);
+                progressFat.setProgress((float) (gramosGrasas / totalGramos), String.format("%.2f", gramosGrasas), 0xFFFBBC05);
+                progressProtein.setProgress((float) (gramosProteina / totalGramos), String.format("%.2f", gramosProteina), 0xFF34A853);
+
+                progressCarbsK.setProgress((float) (caloriasCarbohidratos / totalKcal), String.format("%.2f", caloriasCarbohidratos), 0xFF4285F4);
+                progressFatK.setProgress((float) (caloriasGrasas / totalKcal), String.format("%.2f", caloriasGrasas), 0xFFFBBC05);
+                progressProteinK.setProgress((float) (caloriasProteina / totalKcal), String.format("%.2f", caloriasProteina), 0xFF34A853);
+
+                // Actualizar la gráfica con los nuevos valores
+                updateChartData();
             });
         });
     }
+
 
 
     public void calc_kcal(View vista) {

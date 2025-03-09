@@ -9,11 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button_background">#057bd1</color>
     <color name="button_text">#FFFFFF</color>
-<<<<<<< HEAD
-    <color name="colorSelected">#8120bd</color>
-=======
     <color name="colorSelected">#0277BD</color>
     <color name="colorUnselected">#FFFFFF</color>
->>>>>>> d338020 (Primer commit del proyecto)
 
 </resources>

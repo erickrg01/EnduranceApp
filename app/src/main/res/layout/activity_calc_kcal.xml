@@ -1,77 +1,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    android:background="@drawable/purple_background">
-
-
-    <EditText
-        android:id="@+id/editTextEdad"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:ems="4"
-        android:inputType="number"
-        android:background="@drawable/edittext_background"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp" />
-
-    <TextView
-        android:id="@+id/e_edad"
-        android:textSize="20dp"
-=======
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CalcularKcalActivity"
     android:background="@drawable/gradient_background">
 
     <!-- Campo Edad -->
     <TextView
         android:id="@+id/e_edad"
->>>>>>> d338020 (Primer commit del proyecto)
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edad"
         android:textColor="@color/white"
-<<<<<<< HEAD
-        android:layout_marginTop="150dp"
-        android:layout_toLeftOf="@+id/editTextEdad"
-        android:layout_marginRight="10dp"/>
 
-    <EditText
-        android:id="@+id/editTextPeso"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:ems="4"
-        android:inputType="number"
-        android:background="@drawable/edittext_background"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/editTextEdad"/>
-
-    <TextView
-        android:id="@+id/e_peso"
-        android:layout_width="wrap_content"
-        android:textSize="20dp"
-        android:layout_height="wrap_content"
-        android:text="@string/peso"
-        android:textColor="@color/white"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/editTextEdad"
-        android:layout_toLeftOf="@+id/editTextPeso"
-        android:layout_marginRight="10dp"/>
-
-    <EditText
-        android:id="@+id/editTextAltura"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:ems="4"
-        android:inputType="number"
-        android:background="@drawable/edittext_background"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/editTextPeso"/>
-
-    <TextView
-        android:id="@+id/e_altura"
-        android:textSize="20dp"
-=======
         android:textSize="18sp"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true" />
@@ -116,34 +57,17 @@
         android:layout_marginHorizontal="20dp"
         android:padding="10dp"
         android:textColor="@color/white"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:gravity="center"/>
 
     <!-- Campo Altura -->
     <TextView
         android:id="@+id/e_altura"
->>>>>>> d338020 (Primer commit del proyecto)
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/altura"
         android:textColor="@color/white"
-<<<<<<< HEAD
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/editTextPeso"
-        android:layout_toLeftOf="@+id/editTextAltura"
-        android:layout_marginRight="10dp"/>
 
-    <EditText
-        android:id="@+id/editTextVolumen"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:ems="4"
-        android:inputType="number"
-        android:background="@drawable/edittext_background"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/editTextAltura"/>
-
-=======
         android:textSize="18sp"
         android:layout_below="@id/editTextPeso"
         android:layout_marginTop="30dp"
@@ -161,24 +85,15 @@
         android:layout_marginHorizontal="20dp"
         android:padding="10dp"
         android:textColor="@color/white"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:gravity="center"/>
 
     <!-- Campo Volumen -->
->>>>>>> d338020 (Primer commit del proyecto)
     <TextView
         android:id="@+id/e_volumen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/volumen"
-<<<<<<< HEAD
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/e_altura"
-        android:layout_toLeftOf="@+id/editTextAltura"
-        android:layout_marginRight="10dp"/>
-
-=======
         android:textSize="18sp"
         android:textColor="@color/white"
         android:layout_below="@id/editTextAltura"
@@ -197,20 +112,16 @@
         android:layout_marginHorizontal="20dp"
         android:padding="10dp"
         android:textColor="@color/white"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:gravity="center"/>
 
     <!-- RadioGroup para Género -->
->>>>>>> d338020 (Primer commit del proyecto)
     <RadioGroup
         android:id="@+id/radioGroupGenero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-<<<<<<< HEAD
-        android:layout_below="@+id/e_volumen"
-=======
         android:layout_below="@id/editTextVolumen"
->>>>>>> d338020 (Primer commit del proyecto)
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true">
 
@@ -219,32 +130,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hombre"
-<<<<<<< HEAD
-            android:textColor="@color/white"/>
 
-=======
             android:textColor="@color/white"
             android:textSize="18sp"
             android:paddingHorizontal="10dp"/>
->>>>>>> d338020 (Primer commit del proyecto)
 
         <RadioButton
             android:id="@+id/radioMujer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mujer"
-<<<<<<< HEAD
-            android:textColor="@color/white"/>
-
-    </RadioGroup>
-=======
             android:textColor="@color/white"
             android:textSize="18sp"
             android:paddingHorizontal="10dp"/>
     </RadioGroup>
 
     <!-- Spinner de Ejercicio -->
->>>>>>> d338020 (Primer commit del proyecto)
     <Spinner
         android:id="@+id/spinnerEjercicio"
         android:layout_width="match_parent"
@@ -254,22 +155,7 @@
         android:layout_marginHorizontal="20dp"
         android:padding="10dp"/>
 
-<<<<<<< HEAD
 
-
-    <Button
-        android:id="@+id/btnCalcular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calcular"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/spinnerEjercicio"
-        android:layout_marginTop="20dp"
-        android:onClick="calcular"
-        android:background="@drawable/social_btn_background"/>
-
-</RelativeLayout>
-=======
     <!-- Botón Calcular -->
     <Button
         android:id="@+id/btnCalcular"
@@ -286,4 +172,3 @@
         android:textSize="18sp"/>
 
 </RelativeLayout>
->>>>>>> d338020 (Primer commit del proyecto)

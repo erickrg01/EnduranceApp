@@ -2,7 +2,7 @@
     <!-- Degradado de negro a rojo -->
     <gradient
         android:startColor="#000000"
-        android:endColor="#0277BD"
+        android:endColor="#FFA726"
         android:angle="0"/> <!-- El ángulo define la dirección del degradado -->
 
     <!-- Redondear las esquinas -->

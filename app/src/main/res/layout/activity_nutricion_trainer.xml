@@ -6,78 +6,219 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NutricionActivity"
-    android:background="@drawable/purple_background">
+    android:background="@drawable/gradient_background">
 
 
-    <TextView
-        android:id="@+id/txt_kcal"
+    <LinearLayout
+        android:id="@+id/progress_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/kcal"
-        android:textColor="@color/white"
-        android:layout_marginTop="120dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/kcal_grasa"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_background"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Título de gramos macronutrientes -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_titulo_macronutrientes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gramos Macronutrientes"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/exo2extrabolditalic"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:padding="5dp"/>
+        </RelativeLayout>
+
+        <!-- Círculos de progreso -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Primer círculo -->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_carbs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:text="Carbohidratos"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <com.example.enduranceacademyapp.fragments.CircularProgressView
+                    android:id="@+id/progress_carbs"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tv_carbs" />
+            </RelativeLayout>
+
+            <!-- Segundo círculo -->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_grasa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:text="Grasas"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <com.example.enduranceacademyapp.fragments.CircularProgressView
+                    android:id="@+id/progress_fat"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tv_grasa" />
+            </RelativeLayout>
+
+            <!-- Tercer círculo -->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_prote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:text="Proteínas"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <com.example.enduranceacademyapp.fragments.CircularProgressView
+                    android:id="@+id/progress_protein"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tv_prote" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Contenedor con el título y los círculos de calorías macronutrientes -->
+    <LinearLayout
+        android:id="@+id/progress_container2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kcal de grasa"
-        android:textColor="@color/white"
+        android:layout_below="@id/progress_container"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/txt_kcal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/kcal_prote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kcal de proteina"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/kcal_grasa"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/kcal_carbo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kcal de carbohidratos"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/kcal_prote"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/txt_grasa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gramos_de_grasa_totales"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/kcal_carbo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/txt_proteina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gramos_totales_de_prote_na"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/txt_grasa"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
-    <TextView
-        android:id="@+id/txt_carbos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gramos_totales_de_carbohidratos"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/txt_proteina"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="10dp"/>
+        android:background="@drawable/rounded_background"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Título de calorías macronutrientes -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_titulo_calorias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calorías Macronutrientes"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/exo2extrabolditalic"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:padding="5dp"/>
+        </RelativeLayout>
+
+        <!-- Círculos de calorías -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_carbsK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:text="Carbohidratos"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <com.example.enduranceacademyapp.fragments.CircularProgressView
+                    android:id="@+id/progress_carbsK"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tv_carbsK" />
+            </RelativeLayout>
+
+            <!-- Segundo círculo -->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_grasaK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:text="Grasas"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <com.example.enduranceacademyapp.fragments.CircularProgressView
+                    android:id="@+id/progress_fatK"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tv_grasaK" />
+            </RelativeLayout>
+
+            <!-- Tercer círculo -->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tv_proteK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:text="Proteínas"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <com.example.enduranceacademyapp.fragments.CircularProgressView
+                    android:id="@+id/progress_proteinK"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tv_proteK" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 
     <Spinner
@@ -86,15 +227,16 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/txt_carbos"
+        android:layout_below="@+id/progress_container2"
         android:padding="10dp"/>
 
     <com.anychart.AnyChartView
         android:id="@+id/anyChartView"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@id/txt_carbos"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@id/spinnerUsuarios"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"/>
+        android:background="@drawable/rounded_background"
+        android:layout_marginTop="80dp"/>
 
 </RelativeLayout>

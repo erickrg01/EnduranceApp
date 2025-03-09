@@ -6,68 +6,30 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    android:background="@drawable/purple_background">
-=======
     android:background="@drawable/gradient_background">
->>>>>>> d338020 (Primer commit del proyecto)
 
 
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"
-<<<<<<< HEAD
-        android:layout_height="300dp"
-        app:mcv_firstDayOfWeek="monday"
-        app:mcv_showOtherDates="all"
         app:mcv_tileSize="50dp"
-=======
         android:layout_height="wrap_content"
         app:mcv_firstDayOfWeek="monday"
         app:mcv_showOtherDates="defaults"
         app:mcv_tileHeight="50dp"
         app:mcv_tileWidth="55dp"
+        android:padding="5dp"
         android:layout_marginHorizontal="5dp"
         android:background="@drawable/gradient_gray_white"
->>>>>>> d338020 (Primer commit del proyecto)
         />
 
     <Button
-        android:id="@+id/rutina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/calendarView"
-        android:text="Mi Rutina"
-        android:onClick="miRutina"
-        android:background="@drawable/social_btn_background"/>
-    <Button
         android:id="@+id/regs_entre"
-<<<<<<< HEAD
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rutina"
-        android:layout_marginTop="40dp"
-        android:onClick="btnRegEntrenamiento"
-        android:layout_centerHorizontal="true"
-        android:text="registro de entrenamientos"
-        android:background="@drawable/social_btn_background"/>
-    <Button
-        android:id="@+id/nutricion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/regs_entre"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
-        android:text="nutrición"
-        android:onClick="btnNutri"
-        android:background="@drawable/social_btn_background"/>
-=======
+
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_below="@+id/rutina"
+        android:layout_below="@+id/calendarView"
         android:layout_marginTop="40dp"
         android:textSize="24dp"
         android:textColor="@color/black"
@@ -95,6 +57,5 @@
         android:paddingHorizontal="10dp"
         android:paddingVertical="5dp"
         android:layout_marginHorizontal="10dp"/>
->>>>>>> d338020 (Primer commit del proyecto)
 
 </RelativeLayout>
